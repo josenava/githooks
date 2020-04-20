@@ -7,8 +7,8 @@ greaterThan() {
 }
 
 pylintScore() {
-    py_files=$1
-    target_score=$2
+    py_files=$2
+    target_score=$1
     score=$(pylint $py_files | sed -n -e 's/^Your code has been rated at \([0-9]\{1,2\}\.[0-9]\{1,2\}\).*/\1/p')
     is_ok=$(greaterThan $score $target_score)
 
